@@ -327,6 +327,7 @@
 			modal.transition(D.container.block, 'show', modals.length>1 ? {type: 'none'} : D.openEffect, function() {
 				D.afterOpen(D, $this);
 				$this.trigger('afterOpen');
+				$(window).trigger('arcticmodal.afterOpen');
 			});
 
 			return $this;
@@ -364,6 +365,7 @@
 						// Событие после закрытия
 						D.afterClose(D, $this);
 						$this.trigger('afterClose');
+            $(window).trigger('arcticmodal.afterClose');
 
 						// Если не клонировали - вернём на место
 						if (!D.clone)
